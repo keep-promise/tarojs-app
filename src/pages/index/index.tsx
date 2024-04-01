@@ -1,16 +1,28 @@
-import { View, Text } from '@tarojs/components'
-import { useLoad } from '@tarojs/taro'
-import './index.less'
+import { Component } from 'react'
+import { View, Text, Navigator } from '@tarojs/components'
 
-export default function Index() {
+export default class Index extends Component {
 
-  useLoad(() => {
-    console.log('Page loaded.')
-  })
+  componentWillMount () { }
 
-  return (
-    <View className='index'>
-      <Text>Hello world!</Text>
-    </View>
-  )
+  componentDidMount () { }
+
+  componentWillUnmount () { }
+
+  componentDidShow () { }
+
+  componentDidHide () { }
+
+  render () {
+    return (
+      <View className='home'>
+        <Text>欢迎来到儿童乐园！</Text>
+        <Navigator url='/subPage/pkgA/cat/index' hoverClass='navigator-hover'>猫</Navigator>
+        <Navigator url='/subPage/pkgA/dog/index' hoverClass='navigator-hover'>狗</Navigator>
+        <View className='line'></View>
+        <Navigator url='/packageB/pages/apple/index' hoverClass='navigator-hover'>苹果</Navigator>
+        <Navigator url='/packageB/pages/banana/index' hoverClass='navigator-hover'>香蕉</Navigator>
+      </View>
+    )
+  }
 }
